@@ -23,7 +23,8 @@ public class TestPipeline {
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 log.debug("1");
-                                super.channelRead(ctx, msg);
+                                super.channelRead(ctx, msg);//将数据传递给下一个handler
+                                //ctx.fireChannelRead(msg);//将数据传递给下一个handler
                             }
                         });
                         pipeline.addLast("h2",new ChannelInboundHandlerAdapter() {
